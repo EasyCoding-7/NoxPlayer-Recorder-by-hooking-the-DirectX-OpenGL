@@ -3,6 +3,7 @@
 * DirectX, OpenGL Hooking for Recording Screen
 
 * 현재 Noxcap.dll 빌드완료
+* OpenCV 다운 링크 : https://sourceforge.net/projects/opencvlibrary/
 
 ---
 
