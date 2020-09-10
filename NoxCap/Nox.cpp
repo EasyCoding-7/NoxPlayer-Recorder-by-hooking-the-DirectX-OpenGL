@@ -20,12 +20,14 @@
 #include <oleacc.h>
 #include <TlHelp32.h>
 
+
 #include <opencv2\core\core.hpp>
 #include <opencv2\imgproc\imgproc.hpp>
 #include <opencv2\highgui\highgui.hpp>
 
-using namespace std;
 using namespace cv;
+using namespace std;
+
 
 struct dstr {
 	char *array;
@@ -1032,6 +1034,7 @@ static void copy_b5g6r5_tex(PNOXINFO pNox, int cur_texture,
 		uint8_t *row = input + (gc_pitch * y);
 		uint8_t *out = data + (pitch * y);
 
+		
 		for (uint32_t x = 0; x < gc_cx; x += 8) {
 			__m128i pixels_blue, pixels_green, pixels_red;
 			__m128i pixels_result;
@@ -1105,6 +1108,7 @@ static void copy_b5g6r5_tex(PNOXINFO pNox, int cur_texture,
 				(__m128i *)(out + (x + 4) * sizeof(uint32_t));
 			_mm_store_si128(pixels_dest, pixels_result);
 		}
+		
 	}
 }
 
@@ -1120,6 +1124,7 @@ static void copy_b5g5r5a1_tex(PNOXINFO pNox, int cur_texture,
 		uint8_t *row = input + (gc_pitch * y);
 		uint8_t *out = data + (pitch * y);
 
+		
 		for (uint32_t x = 0; x < gc_cx; x += 8) {
 			__m128i pixels_blue, pixels_green, pixels_red,
 				pixels_alpha;
@@ -1215,6 +1220,7 @@ static void copy_b5g5r5a1_tex(PNOXINFO pNox, int cur_texture,
 				(__m128i *)(out + (x + 4) * sizeof(uint32_t));
 			_mm_store_si128(pixels_dest, pixels_result);
 		}
+		
 	}
 }
 
@@ -1229,6 +1235,7 @@ static inline void copy_16bit_tex(PNOXINFO pNox, int cur_texture,
 		copy_b5g6r5_tex(pNox, cur_texture, data, pitch);
 	}
 }
+
 
 void ShowResultImage(HWND hWnd, Mat *frame) {
 	HDC hdc = GetDC(GetDlgItem(hWnd, IDC_PREVIEW));
@@ -1250,6 +1257,7 @@ void ShowResultImage(HWND hWnd, Mat *frame) {
 	DeleteDC(hdc);
 	DeleteObject(hBmp);
 }
+
 
 static void copy_shmem_tex(PNOXINFO pNox)
 {
@@ -1287,6 +1295,7 @@ static void copy_shmem_tex(PNOXINFO pNox)
 		pNox->pitch * pNox->cy);
 	if (selectedNox != -1) {
 		if (pNox->hProcess == Noxs[selectedNox].hProcess) {
+			
 			uchar *rd = pNox->renderData;
 
 			Mat frame = Mat::zeros(pNox->cy, pNox->cx, CV_8UC4);
@@ -1296,8 +1305,10 @@ static void copy_shmem_tex(PNOXINFO pNox)
 					frame.at<Vec4b>(i, j) = Vec4b(rd[n], rd[n + 1], rd[n + 2], rd[n + 3]);
 				}
 			}
+			
 			ShowResultImage(hMainDlg, &frame);
 			frame.release();
+			
 		}
 	}
 	free(pNox->renderData);
