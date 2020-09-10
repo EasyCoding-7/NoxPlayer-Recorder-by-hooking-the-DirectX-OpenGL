@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -23,31 +23,32 @@
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Noxcap</RootNamespace>
     <ProjectName>Noxcap</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -89,6 +90,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;NOXCAP_EXPORTS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)d3d-api;$(ProjectDir)graphic-hook;$(ProjectDir)libOpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -105,6 +107,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;NOXCAP_EXPORTS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\d3d-api;$(ProjectDir)\graphic-hook;$(ProjectDir)\libOpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -151,16 +154,16 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="d3d8-api\d3d8.h" />
-    <ClInclude Include="d3d8-api\d3d8caps.h" />
-    <ClInclude Include="d3d8-api\d3d8types.h" />
+    <ClInclude Include="d3d-api\d3d8.h" />
+    <ClInclude Include="d3d-api\d3d8caps.h" />
+    <ClInclude Include="d3d-api\d3d8types.h" />
     <ClInclude Include="funchook.h" />
+    <ClInclude Include="graphic-hook\d3d1x_shaders.hpp" />
+    <ClInclude Include="graphic-hook\d3d9-patches.hpp" />
+    <ClInclude Include="graphic-hook\dxgi-helpers.hpp" />
+    <ClInclude Include="graphic-hook\gl-decs.h" />
+    <ClInclude Include="graphic-hook\graphics-hook.h" />
     <ClInclude Include="graphics-hook-info.h" />
-    <ClInclude Include="graphics-hook\d3d1x_shaders.hpp" />
-    <ClInclude Include="graphics-hook\d3d9-patches.hpp" />
-    <ClInclude Include="graphics-hook\dxgi-helpers.hpp" />
-    <ClInclude Include="graphics-hook\gl-decs.h" />
-    <ClInclude Include="graphics-hook\graphics-hook.h" />
     <ClInclude Include="hook-helpers.h" />
     <ClInclude Include="Noxcap.h" />
     <ClInclude Include="obfuscate.h" />
@@ -169,14 +172,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="funchook.c" />
-    <ClCompile Include="graphics-hook\d3d10-capture.cpp" />
-    <ClCompile Include="graphics-hook\d3d11-capture.cpp" />
-    <ClCompile Include="graphics-hook\d3d12-capture.cpp" />
-    <ClCompile Include="graphics-hook\d3d8-capture.cpp" />
-    <ClCompile Include="graphics-hook\d3d9-capture.cpp" />
-    <ClCompile Include="graphics-hook\dxgi-capture.cpp" />
-    <ClCompile Include="graphics-hook\gl-capture.c" />
-    <ClCompile Include="graphics-hook\graphics-hook.c" />
+    <ClCompile Include="graphic-hook\d3d10-capture.cpp" />
+    <ClCompile Include="graphic-hook\d3d11-capture.cpp" />
+    <ClCompile Include="graphic-hook\d3d12-capture.cpp" />
+    <ClCompile Include="graphic-hook\d3d8-capture.cpp" />
+    <ClCompile Include="graphic-hook\d3d9-capture.cpp" />
+    <ClCompile Include="graphic-hook\dxgi-capture.cpp" />
+    <ClCompile Include="graphic-hook\gl-capture.c" />
+    <ClCompile Include="graphic-hook\graphics-hook.c" />
     <ClCompile Include="obfuscate.c" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

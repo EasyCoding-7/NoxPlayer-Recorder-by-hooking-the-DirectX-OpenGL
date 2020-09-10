@@ -1,6 +1,6 @@
 #include <dxgi.h>
 
-#include "../d3d8-api/d3d8.h"
+#include "d3d8.h"
 #include "graphics-hook.h"
 #include "../funchook.h"
 

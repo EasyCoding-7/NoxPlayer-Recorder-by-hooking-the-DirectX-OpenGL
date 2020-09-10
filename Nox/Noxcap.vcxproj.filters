@@ -39,28 +39,28 @@
     <ClInclude Include="graphics-hook-info.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="graphics-hook\d3d1x_shaders.hpp">
+    <ClInclude Include="graphic-hook\d3d1x_shaders.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="graphics-hook\d3d9-patches.hpp">
+    <ClInclude Include="d3d-api\d3d8.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="graphics-hook\dxgi-helpers.hpp">
+    <ClInclude Include="d3d-api\d3d8caps.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="graphics-hook\gl-decs.h">
+    <ClInclude Include="d3d-api\d3d8types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="graphics-hook\graphics-hook.h">
+    <ClInclude Include="graphic-hook\d3d9-patches.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="d3d8-api\d3d8.h">
+    <ClInclude Include="graphic-hook\dxgi-helpers.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="d3d8-api\d3d8caps.h">
+    <ClInclude Include="graphic-hook\gl-decs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="d3d8-api\d3d8types.h">
+    <ClInclude Include="graphic-hook\graphics-hook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -74,28 +74,28 @@
     <ClCompile Include="obfuscate.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="graphics-hook\d3d8-capture.cpp">
+    <ClCompile Include="graphic-hook\graphics-hook.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="graphics-hook\d3d9-capture.cpp">
+    <ClCompile Include="graphic-hook\gl-capture.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="graphics-hook\d3d10-capture.cpp">
+    <ClCompile Include="graphic-hook\dxgi-capture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="graphics-hook\d3d11-capture.cpp">
+    <ClCompile Include="graphic-hook\d3d8-capture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="graphics-hook\d3d12-capture.cpp">
+    <ClCompile Include="graphic-hook\d3d9-capture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="graphics-hook\dxgi-capture.cpp">
+    <ClCompile Include="graphic-hook\d3d10-capture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="graphics-hook\gl-capture.c">
+    <ClCompile Include="graphic-hook\d3d11-capture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="graphics-hook\graphics-hook.c">
+    <ClCompile Include="graphic-hook\d3d12-capture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

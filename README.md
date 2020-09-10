@@ -2,6 +2,8 @@
 
 * DirectX, OpenGL Hooking for Recording Screen
 
+* 현재 Noxcap.dll 빌드완료
+
 ---
 
 # NoxPlayer-Recorder
